@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login </title>
+    <link rel="stylesheet" href="UserSignup.css">
+</head>
+<body>
+    <div class="hero"> 
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"> </div>
+                <button type="button" class="toggle-btn"  onclick="Login()" > Login </button>
+                <button type="button" class="toggle-btn" onclick="Register()"> Register </button>
+            </div>
+            <div class="social-icon">
+                <img src="./assets/fb.png">
+                <img src="./assets/tw.png">
+                <img src="./assets/gp.png">
+            </div>
+            <form  id="Login" class="in-g">
+           <input type="text" class="input-field" placeholder=" User Id" required >
+           <input type="text" class="input-field" placeholder=" Enter Password" required>
+           <input type="checkbox" class="checkbox"><span> Remember Me</span>
+         <button input="submit" class="sub-btn"> Login</button>
+            </form>
+            <form  id="Register"  class="in-g">
+                <input type="text" class="input-field" placeholder=" User Id" required>
+                <input type="email" class="input-field" placeholder=" E-mail" required>
+                <input type="text" class="input-field" placeholder="Enter Password" required>
+                <input type="checkbox" class="checkbox"><span> I agree to the terms and condition</span>
+              <button input="submit" class="sub-btn"> Register</button>
+                 </form>
+
+        </div>
+        
+    </div>
+    <script>
+        var loginform = document.getElementById("Login");
+        var RegisterForm = document.getElementById("Register");
+        var button = document.getElementById("btn");
+
+        function Register(){
+             loginform.style.left ="-400px";
+            RegisterForm.style.left ="50px";
+            button.style.left ="110px";
+        }
+        function Login(){
+             loginform.style.left ="50px";
+            RegisterForm.style.left ="450px";
+            button.style.left ="0px";
+        }
+
+    </script>
+</body>
+</html>

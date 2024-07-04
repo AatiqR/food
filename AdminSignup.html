@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="AdminSignup.css">
+</head>
+<body>
+    <div class="hero"> 
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" id="LoginMove">Login</button>
+                <button type="button" class="toggle-btn" id="RegisterMove">Register</button>
+            </div>
+            <div class="social-icon">
+                <img src="./assets/fb.png" alt="Facebook">
+                <img src="./assets/tw.png" alt="Twitter">
+                <img src="./assets/gp.png" alt="Google Plus">
+            </div>
+          
+                    <!-- Login -->
+            <form id="Login" class="in-g">
+                <input id="lemail" type="email" class="input-field" placeholder="email" required>
+                <input id="lpass" type="password" class="input-field" placeholder="Enter Password" required>
+                <input type="checkbox" class="checkbox"><span> Remember Me</span>
+                <button type="button" id="Loginbtn" class="sub-btn">Login</button>
+            </form>
+          <!-- Register -->
+            <form id="Register" class="in-g">
+                <input type="text" class="input-field" placeholder="User Id" required>
+                <input id="Remail" type="email" class="input-field" placeholder="E-mail" required>
+                <input id="Rpass" type="password" class="input-field" placeholder="Enter Password" required>
+                <input type="checkbox" class="checkbox"><span> I agree to the terms and condition</span>
+                <button type="button" id="Registerbtn" class="sub-btn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBboPnq3GEtOJ49KS2XUD8Lkh9c3ilLxGY",
+            authDomain: "register-admin-e6aaa.firebaseapp.com",
+            projectId: "register-admin-e6aaa",
+            storageBucket: "register-admin-e6aaa.appspot.com",
+            messagingSenderId: "594549080631",
+            appId: "1:594549080631:web:b42ad0714532d5564a75b2",
+            measurementId: "G-EN3BSDFDNM"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.getElementById('RegisterMove').addEventListener("click", () => {
+            document.getElementById("Login").style.left = "-400px";
+            document.getElementById("Register").style.left = "50px";
+            document.getElementById("btn").style.left = "110px";
+        });
+
+        document.getElementById('LoginMove').addEventListener("click", () => {
+            document.getElementById("Login").style.left = "50px";
+            document.getElementById("Register").style.left = "450px";
+            document.getElementById("btn").style.left = "0px";
+        });
+
+  //   For Registor
+       let Registerbtn = document.getElementById("Registerbtn")
+       if(Registerbtn){
+         Registerbtn.addEventListener("click", () => {
+           const email = document.getElementById("Remail").value;
+            const password = document.getElementById("Rpass").value;
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    console.log(user);
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error(errorCode, errorMessage);
+                });
+              });
+            }
+// For Login
+       let Loginbtn = document.getElementById("Loginbtn");
+       if(Loginbtn){
+         Loginbtn.addEventListener("click", () => {
+            const email = document.getElementById("lemail").value
+            const password = document.getElementById("lpass").value
+          
+            signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+                console.log(user);
+            })
+            .catch((error) => {
+              const errorCode = error.code;
+              const errorMessage = error.message;
+            });
+
+            location.href = "index.html";
+
+         })
+        }
+
+    </script>
+</body>
+</html>
