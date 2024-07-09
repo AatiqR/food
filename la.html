@@ -1,0 +1,172 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Food Delivery App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #ff6f61;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin: 2em;
+        }
+
+        .form-container, .product-list {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+            width: 45%;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1em;
+            margin: 1em 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #ff6f61;
+            border: none;
+            color: white;
+            padding: 1em 2em;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .product-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+            padding: 1em 0;
+        }
+
+        .product-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 1em;
+        }
+
+        .product-info {
+            flex-grow: 1;
+        }
+
+        .add-to-cart {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Admin Dashboard - Food Delivery App</h1>
+    </div>
+    <div class="container">
+        <div class="form-container">
+            <h2>Add New Product</h2>
+            <form id="productForm">
+                <input type="text" id="productName" placeholder="Product Name" required>
+                <textarea id="productDescription" placeholder="Product Description" required></textarea>
+                <input type="number" id="productPrice" placeholder="Product Price" required>
+                <input type="file" id="productImage" accept="image/*" required>
+                <button type="submit">Create Product</button>
+            </form>
+        </div>
+        <div class="product-list">
+            <h2>Product List</h2>
+            <div id="products"></div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('productForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let name = document.getElementById('productName').value;
+            let description = document.getElementById('productDescription').value;
+            let price = document.getElementById('productPrice').value;
+            let image = document.getElementById('productImage').files[0];
+            
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                let product = {
+                    name: name,
+                    description: description,
+                    price: price,
+                    image: e.target.result
+                };
+                addProductToDOM(product);
+                document.getElementById('productForm').reset();
+            };
+            reader.readAsDataURL(image);
+        });
+
+        function addProductToDOM(product) {
+            let productCard = document.createElement('div');
+            productCard.className = 'product-card';
+            productCard.innerHTML = `
+                <img class="product-image" src="${product.image}" alt="${product.name}">
+                <div class="product-info">
+                    <h4>${product.name}</h4>
+                    <p>${product.description}</p>
+                    <p>$${product.price}</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            `;
+            document.getElementById('products').appendChild(productCard);
+        }
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Uploaded Image</title>
+</head>
+<body>
+  <input type="file" id="Ppic" accept="image/*">
+  <img id="image" src="" alt="Uploaded Image" style="max-width: 100%; height: auto;">
+
+  <script>
+    doucment.addEventListener('DOMContentLoaded', () => {
+      // Get references to the file input and image elements
+      const fileInput = document.querySelector('#Ppic');
+      const imageDisplay = document.querySelector('#image');
+
+      // Function to handle file selection and display the image
+      function run() {
+        const file = fileInput.files[0]; // Get the selected file
+        if (file) {
+          const imageUrl = URL.createObjectURL(file); // Create a URL for the file
+          imageDisplay.src = imageUrl; // Set the src attribute of the img element to the file URL
+        }
+      }
+
+      // Add an event listener to the file input to trigger the run function on file selection
+      fileInput.addEventListener('change', run);
+    });
+  </script>
+</body>
+</html>

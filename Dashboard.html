@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Dashboard.css">
+</head>
+<body>
+    <div class="nav">
+        <h1 class="admin-text">
+            <center>
+            Admin Dashboard
+        </center>
+    </h1>
+        <button type="button" class="addbtn" id="addproductbtn">Add Item</button>
+    </div>
+    <!-- Card -->
+   <div id="main">
+   </div>
+  <!-- form -->
+    <div class="container hidden" id="formContainer">
+        <form id="pform" action="">
+            <h1 class="heading">Add Product</h1>
+            <input class="inp" type="text" id="name" placeholder="Enter the Name"><br>
+            <input class="inp" type="text" id="description" placeholder="Enter the Description"><br>
+            <input class="inp" type="number" id="price" placeholder="Enter the Price"><br>
+            <input class="inp" type="file" id="pic" accept="image/*"><br>
+            <input class="sbtn" id="cart-add" type="button" value="Add Item"><br>
+        </form>
+    </div>
+
+    <script src="Admin.js"></script>
+</body>
+</html>

@@ -11,7 +11,7 @@ nav {
 .name{
     color: white;
     font-size: 44px;
-    font-weight: bold;
+    font-weight: bold;j
     font-style: italic;
     text-align: center;
 }
@@ -25,15 +25,14 @@ nav {
 
 
 .button-40 {
-  --glow-color: rgb(87, 80, 93);
-  --glow-spread-color: rgb(7, 189, 245);
-  --enhanced-glow-color: rgb(66, 61, 71);
+  --glow-color: aqua;
+  --glow-spread-color: cyan;
+  --enhanced-glow-color: rgb(2, 130, 250);
   --btn-color: rgb(255, 0, 144);
-  border: .25em solid var(--glow-color);
-  padding: 1em 3em;
+  /* border: .25em solid black; */
+  padding: 13px 14px;
   color: var(--glow-color);
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 25px;
   background-color: var(--btn-color);
   border-radius: 1em;
   outline: none;
@@ -43,7 +42,7 @@ nav {
   text-shadow: 0 0 .5em var(--glow-color);
   position: relative;
   transition: all 0.3s;
-  font-weight: bold;
+  font-weight: 900;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   
   }

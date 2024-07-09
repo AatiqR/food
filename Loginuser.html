@@ -43,15 +43,15 @@
         import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
 
         const firebaseConfig = {
-            apiKey: "AIzaSyBboPnq3GEtOJ49KS2XUD8Lkh9c3ilLxGY",
-            authDomain: "register-admin-e6aaa.firebaseapp.com",
-            projectId: "register-admin-e6aaa",
-            storageBucket: "register-admin-e6aaa.appspot.com",
-            messagingSenderId: "594549080631",
-            appId: "1:594549080631:web:b42ad0714532d5564a75b2",
-            measurementId: "G-EN3BSDFDNM"
-        };
-
+    apiKey: "AIzaSyA6Qb3815fAn1gVy9hW4BJrC4c6JFVG4Sw",
+    authDomain: "loginuser-3c284.firebaseapp.com",
+    projectId: "loginuser-3c284",
+    storageBucket: "loginuser-3c284.appspot.com",
+    messagingSenderId: "507884983052",
+    appId: "1:507884983052:web:5b1d923b6968031ad56f29",
+    measurementId: "G-ZK71XM7P2F"
+  };
+    
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
@@ -103,11 +103,11 @@
               const errorMessage = error.message;
             });
 
-            location.href = "Dashboard.html";
+            location.href = "userdashboard.html";
 
          })
         }
-
+     let nav = false;
     </script>
 </body>
 </html>
